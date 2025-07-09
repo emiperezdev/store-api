@@ -7,6 +7,7 @@ public class OrderService {
   private PaymentService paymentService;
 
   public OrderService(PaymentService paymentService) {
+    System.out.println(">>> Order Service created");
     this.paymentService = paymentService;
   }
 
