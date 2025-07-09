@@ -6,8 +6,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-@Primary
+//@Service
+//@Primary
 public class StripePaymentService implements PaymentService {
   @Value("${stripe.apiUrl}")
   private String apiUrl;

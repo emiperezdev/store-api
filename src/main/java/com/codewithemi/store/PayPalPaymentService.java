@@ -2,7 +2,7 @@ package com.codewithemi.store;
 
 import org.springframework.stereotype.Service;
 
-@Service
+//@Service
 public class PayPalPaymentService implements PaymentService {
   @Override
   public void processPayment(Double amount) {
