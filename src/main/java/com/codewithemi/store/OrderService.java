@@ -10,7 +10,7 @@ public class OrderService {
     this.paymentService = paymentService;
   }
 
-  public void pay(Double amount) {
+  public void placeOrder(Double amount) {
     paymentService.processPayment(amount);
   }
 
