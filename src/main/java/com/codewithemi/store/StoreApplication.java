@@ -9,9 +9,15 @@ public class StoreApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(StoreApplication.class, args);
-		var resource = context.getBean(HeavyResource.class);
-		//		var orderService = context.getBean(OrderService.class);
-		//		orderService.placeOrder(10.0);
+		var userService = context.getBean(UserService.class);
+		userService.registerUser(
+			new User(
+				1001,
+				"emiperez.dev@gmail.com",
+				"Password1!",
+				"Emiliano Perez Murillo"
+			)
+		);
 	}
 
 }
