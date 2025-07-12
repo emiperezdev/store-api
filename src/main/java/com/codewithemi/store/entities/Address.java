@@ -1,16 +1,13 @@
 package com.codewithemi.store.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 @Builder
 @Entity
 @Table(name = "addresses")
@@ -31,5 +28,6 @@ public class Address {
 
   @ManyToOne
   @JoinColumn(name = "user_id")
+  @ToString.Exclude
   private User user;
 }
