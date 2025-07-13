@@ -42,6 +42,9 @@ public class User {
   @Builder.Default
   private Set<Tag> tags = new HashSet<>();
 
+  @OneToOne(mappedBy = "user")
+  private Profile profile;
+
   public void addAddress(Address address) {
     addresses.add(address);
     address.setUser(this);
@@ -62,6 +65,16 @@ public class User {
     tags.stream()
       .filter(t -> t.getName().equals(tagName))
       .findFirst()
-      .ifPresent(tags::remove);
+      .ifPresent(t -> tags.remove(t));
+  }
+
+  public void addProfile(Profile profile) {
+    setProfile(profile);
+    profile.setUser(this);
+  }
+
+  public void removeProfile(Profile profile) {
+    setProfile(null);
+    profile.setUser(null);
   }
 }

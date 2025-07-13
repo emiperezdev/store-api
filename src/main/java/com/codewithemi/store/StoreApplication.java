@@ -1,6 +1,7 @@
 package com.codewithemi.store;
 
 import com.codewithemi.store.entities.Address;
+import com.codewithemi.store.entities.Profile;
 import com.codewithemi.store.entities.Tag;
 import com.codewithemi.store.entities.User;
 import org.springframework.boot.SpringApplication;
@@ -18,13 +19,12 @@ public class StoreApplication {
 			.email("john@gamil.com")
 			.build();
 
-		var tag = new Tag("tag1");
+		var profile = Profile.builder()
+			.bio("bio")
+			.build();
 
-		user.addTag(tag.getName());
+		user.addProfile(profile);
 		System.out.println(user);
-		user.removeTag(tag.getName());
-		System.out.println(user);
-
 	}
 
 }
