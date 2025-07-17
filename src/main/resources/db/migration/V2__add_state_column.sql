@@ -1,1 +1,2 @@
-ALTER TABLE `users` ADD COLUMN `state` VARCHAR(255) NOT NULL;
+alter table users
+    add state varchar(255) null;

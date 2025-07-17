@@ -1,5 +1,5 @@
-ALTER TABLE `users`
-    DROP COLUMN `state`;
+alter table users
+drop column state;
 
-ALTER TABLE `addresses`
-    ADD COLUMN `state` VARCHAR(255) NOT NULL;
+alter table addresses
+    add state varchar(255) not null;

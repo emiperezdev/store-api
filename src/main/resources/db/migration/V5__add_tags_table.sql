@@ -1,23 +1,16 @@
--- -----------------------------------------------------
--- Table `fizzbuzz`.`tags`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `store`.`tags` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+-- Create the tags table
+CREATE TABLE tags
+(
+    id   INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
 
--- -----------------------------------------------------
--- Table `store`.`users_tags`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `store`.`users_tags` (
-  `id_user` BIGINT NOT NULL,
-  `id_tag` INT NOT NULL,
-  PRIMARY KEY (`id_user`, `id_tag`),
-  FOREIGN KEY (`id_user`)
-    REFERENCES `store`.`users` (`id`)
-    ON DELETE CASCADE,
-  FOREIGN KEY (`id_tag`)
-    REFERENCES `store`.`tags` (`id`)
-    ON DELETE CASCADE)
-ENGINE = InnoDB;
+-- Create the user_tags join table
+CREATE TABLE user_tags
+(
+    user_id BIGINT NOT NULL,
+    tag_id  INT NOT NULL,
+    PRIMARY KEY (user_id, tag_id),
+    FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,
+    FOREIGN KEY (tag_id) REFERENCES tags (id) ON DELETE CASCADE
+);

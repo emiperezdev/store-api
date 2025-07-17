@@ -1,11 +1,9 @@
--- -----------------------------------------------------
--- Table `store`.`profiles`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `store`.`profiles` (
-  `id` BIGINT NOT NULL,
-  `bio` TEXT NULL,
-  `phone_number` VARCHAR(255) NULL,
-  `date_or_birth`  DATE NULL,
-  `loyalty_points` INT UNSIGNED DEFAULT 0,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+CREATE TABLE profiles
+(
+    id             BIGINT PRIMARY KEY,
+    bio            TEXT,
+    phone_number   VARCHAR(15),
+    date_of_birth  DATE,
+    loyalty_points INT UNSIGNED DEFAULT 0,
+    FOREIGN KEY (id) REFERENCES users(id)
+);
