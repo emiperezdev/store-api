@@ -1,6 +1,5 @@
 package com.codewithemi.store;
 
-import com.codewithemi.store.repositories.UserRepository;
 import com.codewithemi.store.services.UserService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,7 +12,7 @@ public class StoreApplication {
 		ApplicationContext context = SpringApplication.run(StoreApplication.class, args);
 		var service = context.getBean(UserService.class);
 
-		service.persistRelated();
+		service.deleteRelated();
 	}
 
 }
