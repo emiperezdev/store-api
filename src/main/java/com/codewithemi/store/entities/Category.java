@@ -2,6 +2,7 @@ package com.codewithemi.store.entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -12,6 +13,7 @@ import java.util.Set;
 @Setter
 @ToString
 @Entity
+@NoArgsConstructor
 @Table(name = "categories")
 public class Category {
   @Id

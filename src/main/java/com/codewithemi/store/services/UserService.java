@@ -1,14 +1,16 @@
 package com.codewithemi.store.services;
 
 import com.codewithemi.store.entities.Address;
+import com.codewithemi.store.entities.Category;
+import com.codewithemi.store.entities.Product;
 import com.codewithemi.store.entities.User;
-import com.codewithemi.store.repositories.AddressRepository;
-import com.codewithemi.store.repositories.ProfileRepository;
-import com.codewithemi.store.repositories.UserRepository;
+import com.codewithemi.store.repositories.*;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
 
 @AllArgsConstructor
 @Service
@@ -17,6 +19,8 @@ public class UserService {
   private final ProfileRepository profileRepository;
   private final EntityManager entityManager;
   private final AddressRepository addressRepository;
+  private final ProductRepository productRepository;
+  private final CategoryRepository categoryRepository;
 
   @Transactional
   public void showEntityStates() {
@@ -70,11 +74,8 @@ public class UserService {
   }
 
   @Transactional
-  public void deleteRelated() {
-    var user = userRepository.findById(6L).orElseThrow();
-    var address = user.getAddresses().getFirst();
-    user.removeAddress(address);
-    userRepository.save(user);
+  public void manageProducts() {
+    productRepository.deleteById(4L);
   }
 
 }
